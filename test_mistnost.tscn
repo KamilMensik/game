@@ -36,6 +36,10 @@ material = SubResource( 3 )
 [node name="Camera" type="Camera" parent="Player"]
 transform = Transform( 1, 0, 0, 0, 0.777146, 0.62932, 0, -0.62932, 0.777146, 0, 8, 8 )
 
+[node name="Timer" type="Timer" parent="Player"]
+wait_time = 0.1
+one_shot = true
+
 [node name="StaticBody" type="StaticBody" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
@@ -56,3 +60,5 @@ material = SubResource( 4 )
 [node name="CollisionShape2" type="CollisionShape" parent="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 1 )
+
+[connection signal="timeout" from="Player/Timer" to="Player" method="_on_Timer_timeout"]
